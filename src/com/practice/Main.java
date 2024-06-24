@@ -1,13 +1,17 @@
 package com.practice;
-import com.practice.Entities.Product;
-import com.practice.Entities.Store;
+import com.practice.Entities.*;
 import com.practice.Utils.CustomUtils;
 
+import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
+
+import static com.practice.Utils.CustomUtils.hasSpecialChar;
 
 public class Main {
     public static void main(String[] args) {
+        ArrayList<Customer> customers = new ArrayList<Customer>();
         Scanner scanner = new Scanner(System.in);
 
         Product[] initialSilposProducts = {
@@ -18,8 +22,11 @@ public class Main {
 
         Store silpo = new Store("Silpo", new ArrayList<Product>());
         Store atb = new Store("atb", new ArrayList<Product>());
+        String[] specialCharacters = {"!", "@", "#", "$", "%", "ˆ", "&", "*", "(", ")", "+", "?"};
+        boolean hasSpecialCharacters = false;
 
         Store currentStore;
+
         Store[] stores = {
                 silpo,
                 atb
@@ -35,6 +42,10 @@ public class Main {
         boolean hasAuth = false;
 
         while (isRunning) {
+            System.out.println("Enter what do you wanna do? \na)Registration \nb)Authorisation \nc)Show Products \nd)Store Session \nq)Exit");
+
+            String chosenOption = scanner.nextLine();
+
             System.out.println("Welcome to the map, please pick the store you want: ");
 
             for(int i = 0; i < stores.length; i++) {
@@ -46,22 +57,52 @@ public class Main {
 
             currentStore = stores[Integer.parseInt(chosenStore)];
 
-            System.out.println("Enter what do you wanna do? \na)Registration \nb)Authorisation \nc)Show Products \nd)Store Session \nq)Exit");
 
-            String chosenOption = scanner.nextLine();
             switch (chosenOption.trim().toLowerCase()) {
                 case "a":
-                    String name = scanner.nextLine();
-                    String email = scanner.nextLine();
-                    String passowrd = scanner.nextLine();
+                    boolean isInvalid = true;
+                    while(isInvalid) {
+                        System.out.println("Enter ur name: ");
+                        String name = scanner.nextLine();
+                        System.out.println("Enter ur email: ");
+                        String email = scanner.nextLine();
+                        System.out.println("Enter ur password: ");
 
-//                    if() name.length < 2, name has two aa / ii / oo
-                    // if() email.length > 5, contain "@"
-                    // if() password.length > 5, contain at least on of [["!", "@", "#"], ["$", "%", "ˆ"] ]
+                        String password = scanner.nextLine();
+
+                        boolean commonConditions = name.length() < 2 || email.length() < 5 || !email.contains("@");
+
+                        if(commonConditions || !hasSpecialChar(specialCharacters, password)) continue;
+
+                        Customer customer = new Customer(name, email, password, new Cart(new ArrayList<Product>(),1313), new Wallet("$"));
+                        customers.add(customer);
+
+                        isInvalid = false;
+
+                    }
+
+                    System.out.println("The customer was successfully added to the array. [ARRAYS_DATA] : ");
+                    for(Customer currentCustomer : customers) {
+                        System.out.printf("%s", currentCustomer.getName() + "\n");
+                        System.out.println("__________________");
+                    }
+                    System.out.println("_________________");
+
                     break;
                 case "b":
-                    System.out.println("Authorisation");
-                    // Invalid password if email exists
+                    System.out.println("Enter ur email: ");
+
+                    String authEmail = scanner.nextLine();
+                    String authPassword = scanner.nextLine();
+
+                    for (int i = 0; i < customers.size(); i++) {
+                        Customer currentCustomer = customers.get(i);
+                        boolean isValidPassword = authPassword.equals(currentCustomer.getPassword());
+                        boolean isValidEmail = authEmail.equals(currentCustomer.getEmail());
+                        if(isValidEmail && isValidPassword) {
+                            System.out.println("Successfully authenticated");
+                        }
+                    }
                     break;
                 case "c":
                     System.out.println("Show Products");
@@ -69,7 +110,7 @@ public class Main {
                     break;
                 case "d":
                     System.out.println("Store Session");
-                    // Create new Customer
+
                     break;
                 case "q":
                     System.out.println("Exit");

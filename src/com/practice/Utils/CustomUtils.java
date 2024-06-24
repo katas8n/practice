@@ -9,4 +9,16 @@ public class CustomUtils {
 
         return false;
     }
+
+   public static boolean hasSpecialChar(String[] specialCharacters, String value) {
+        boolean hasSpecialCharacters = false;
+
+       for(int i = 0; i < specialCharacters.length; i++) {
+           String character = specialCharacters[i];
+
+           if(value.contains(character)) hasSpecialCharacters = true;
+       }
+
+       return hasSpecialCharacters;
+   }
 }
