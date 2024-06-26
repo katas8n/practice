@@ -1,19 +1,18 @@
 package com.practice;
 import com.practice.Entities.*;
-import com.practice.Utils.CustomUtils;
 
-import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 import static com.practice.Utils.CustomUtils.hasSpecialChar;
 
 public class Main {
     public static void main(String[] args) {
+        //     TODO for Bogdan
         ArrayList<Customer> customers = new ArrayList<Customer>();
         Scanner scanner = new Scanner(System.in);
 
+        // **
         Product[] initialSilposProducts = {
                 new Product("Pepsi", 13.13),
                 new Product("Coca-cola", 23.13, 3.13),
@@ -22,11 +21,14 @@ public class Main {
 
         Store silpo = new Store("Silpo", new ArrayList<Product>());
         Store atb = new Store("atb", new ArrayList<Product>());
+
+        // ** for Bogdan
         String[] specialCharacters = {"!", "@", "#", "$", "%", "ˆ", "&", "*", "(", ")", "+", "?"};
         boolean hasSpecialCharacters = false;
 
         Store currentStore;
 
+        // ** for Bogdan
         Store[] stores = {
                 silpo,
                 atb
@@ -48,6 +50,7 @@ public class Main {
 
             System.out.println("Welcome to the map, please pick the store you want: ");
 
+            // ** to forEach => TODO Dmytro
             for(int i = 0; i < stores.length; i++) {
                 System.out.println(i + ") " + stores[i].getTitle());
             }
