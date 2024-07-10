@@ -14,6 +14,14 @@ public class Account {
         this.role = Roles.BASIC_USER.name();
     }
 
+    public Account(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.balance = 0;
+        this.role = Roles.BASIC_USER.name();
+    }
+
     public String getName() {
         return name;
     }

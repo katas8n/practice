@@ -1,5 +1,6 @@
 package com.fight.Fighter;
 
+import com.fight.Skill.OuterSkill;
 import com.fight.Weapon.Weapon;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ public abstract class Fighter<T, Y> implements IFighter {
         private String name;
         private String fighterClass;
 
-        private ArrayList<T> skills;
+        private OuterSkill[] skills;
         private Weapon weapon;
         private int HP;
 
@@ -21,23 +22,25 @@ public abstract class Fighter<T, Y> implements IFighter {
     public Fighter(
             String name,
             String fighterClass,
-            ArrayList<T> skills,
+            OuterSkill[] skills,
             Weapon weapon,
-            Y agility,
-            Y strength,
-            Y intelligence,
-            Y damage
+            Object agility,
+            Object strength,
+            Object intelligence,
+            Object damage
     ) {
         this.name = name;
         this.fighterClass = fighterClass;
         this.skills = skills;
         this.weapon = weapon;
-        this.agility = agility;
-        this.strength = strength;
-        this.intelligence = intelligence;
-        this.damage = damage;
+        this.agility = (Y) agility;
+        this.strength = (Y) strength;
+        this.intelligence = (Y) intelligence;
+        this.damage = (Y) damage;
         this.HP = 100;
     }
+
+    public abstract void displayHP();
     public String getName() {
         return name;
     }
@@ -46,12 +49,12 @@ public abstract class Fighter<T, Y> implements IFighter {
         this.name = name;
     }
 
-    public ArrayList<T> getSkills() {
+    public Object[] getSkills() {
         return skills;
     }
 
     public void setSkills(ArrayList<T> skills) {
-        this.skills = skills;
+        this.skills = skills.toArray(new OuterSkill[0]);
     }
 
     public Weapon getWeapon() {

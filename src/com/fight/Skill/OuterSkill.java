@@ -11,6 +11,10 @@ public class OuterSkill {
         return fraction;
     }
 
+    public OuterSkill(String skillsName) {
+        this.skillsName = skillsName;
+    }
+
     class InnerSkill {
         public int fireWall() {
              return basicDamage;

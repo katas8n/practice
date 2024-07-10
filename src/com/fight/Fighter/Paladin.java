@@ -1,5 +1,6 @@
 package com.fight.Fighter;
 
+import com.fight.Skill.OuterSkill;
 import com.fight.Weapon.Weapon;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ public class Paladin<T, Y> extends Fighter {
     public Paladin(
             String name,
             String fighterClass,
-            ArrayList<T> skills,
+            OuterSkill[] skills,
             Weapon weapon,
             Y agility,
             Y strength,
@@ -35,4 +36,9 @@ public class Paladin<T, Y> extends Fighter {
     public void consumeDamage() {
         System.out.println("here was damaged ... by ...");
     };
+
+    @Override
+    public void displayHP() {
+
+    }
 }

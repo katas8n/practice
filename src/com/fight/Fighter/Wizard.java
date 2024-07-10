@@ -1,8 +1,7 @@
 package com.fight.Fighter;
 
+import com.fight.Skill.OuterSkill;
 import com.fight.Weapon.Weapon;
-
-import java.util.ArrayList;
 
 // TODO : wide opportunity of Wizard
 public class Wizard<T,Y> extends Paladin{
@@ -10,7 +9,7 @@ public class Wizard<T,Y> extends Paladin{
     public Wizard(
             String name,
             String fighterClass,
-            ArrayList<T> skills,
+            OuterSkill[] skills,
             Weapon weapon,
             Y agility,
             Y strength,
