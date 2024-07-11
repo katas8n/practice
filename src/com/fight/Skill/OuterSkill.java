@@ -15,6 +15,11 @@ public class OuterSkill {
         this.skillsName = skillsName;
     }
 
+    @Override
+    public String toString() {
+        return skillsName;
+    }
+
     class InnerSkill {
         public int fireWall() {
              return basicDamage;

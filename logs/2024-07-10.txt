@@ -1,0 +1,22 @@
+10:38:19 PM User started with a hero: 
+Paladin {name='test', fighterClass='PALADIN', skills=[Kick, Jump], weapon='unavailable', HP=100, agility=25, strength=15, intelligence=25, damage=25}
+10:38:51 PM User started with a hero: 
+Paladin {name='PlayerPaladin1', fighterClass='PALADIN', skills=[Kick, Jump], weapon='unavailable', HP=100, agility=24, strength=15, intelligence=28, damage=24}
+11:23:37 PM User started with a hero: 
+Paladin {name='test', fighterClass='PALADIN', skills=[Kick, Jump], weapon='unavailable', HP=100, agility=25, strength=15, intelligence=25, damage=25}
+11:24:40 PM User started with a hero: 
+Paladin {name='PlayerPaladin1', fighterClass='PALADIN', skills=[Kick, Jump], weapon='unavailable', HP=100, agility=24, strength=15, intelligence=28, damage=24}
+11:24:57 PM User started with a hero: 
+Wizard {name='PlayerWizard1', fighterClass='WIZARD', skills=[Kick, Jump, Run], weapon='unavailable', HP=100, agility=30, strength=20, intelligence=15, damage=30, talent='Swim'}
+11:27:59 PM User started with a hero: 
+Paladin {name='test', fighterClass='PALADIN', skills=[Kick, Jump], weapon='unavailable', HP=100, agility=25, strength=15, intelligence=25, damage=25}
+11:28:14 PM User started with a hero: 
+Paladin {name='PlayerPaladin1', fighterClass='PALADIN', skills=[Kick, Jump], weapon='unavailable', HP=100, agility=24, strength=15, intelligence=28, damage=24}
+11:28:21 PM User started with a hero: 
+Paladin {name='PlayerPaladin1', fighterClass='PALADIN', skills=[Kick, Jump], weapon='unavailable', HP=100, agility=24, strength=15, intelligence=28, damage=24}
+11:28:29 PM User started with a hero: 
+Paladin {name='PlayerPaladin1', fighterClass='PALADIN', skills=[Kick, Jump], weapon='unavailable', HP=100, agility=24, strength=15, intelligence=28, damage=24}
+11:28:36 PM User started with a hero: 
+Paladin {name='PlayerPaladin1', fighterClass='PALADIN', skills=[Kick, Jump], weapon='unavailable', HP=100, agility=24, strength=15, intelligence=28, damage=24}
+11:28:43 PM User started with a hero: 
+Paladin {name='PlayerPaladin1', fighterClass='PALADIN', skills=[Kick, Jump], weapon='unavailable', HP=100, agility=24, strength=15, intelligence=28, damage=24}

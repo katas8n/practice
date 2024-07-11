@@ -4,6 +4,7 @@ import com.fight.Skill.OuterSkill;
 import com.fight.Weapon.Weapon;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public abstract class Fighter<T, Y> implements IFighter {
         private String name;
@@ -95,8 +96,9 @@ public abstract class Fighter<T, Y> implements IFighter {
         this.damage = damage;
     }
 
+    @Override
     public void consumeDamage(int enemyDamage) {
-        setHP(enemyDamage - getHP());
+        setHP(getHP() - enemyDamage);
     }
 
     public void setAgility(Y agility) {
@@ -119,5 +121,20 @@ public abstract class Fighter<T, Y> implements IFighter {
 
     public Y getIntelligence() {
         return intelligence;
+    }
+
+    @Override
+    public String toString() {
+        return "Fighter {" +
+                "name='" + name + '\'' +
+                ", fighterClass='" + fighterClass + '\'' +
+                ", skills=" + Arrays.toString(skills) +
+                ", weapon=" + weapon +
+                ", HP=" + HP +
+                ", agility=" + agility +
+                ", strength=" + strength +
+                ", intelligence=" + intelligence +
+                ", damage=" + damage +
+                '}';
     }
 }

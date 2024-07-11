@@ -4,6 +4,7 @@ import com.fight.Skill.OuterSkill;
 import com.fight.Weapon.Weapon;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Paladin<T, Y> extends Fighter {
     public Paladin(
@@ -30,11 +31,28 @@ public class Paladin<T, Y> extends Fighter {
 
     @Override
     public void damage() {
-        System.out.println("hero damaged ... by ...");
+        System.out.printf("Hero %s damaged on %d\n", getName(), (int) getDamage());
     }
 
-    public void consumeDamage() {
-        System.out.println("here was damaged ... by ...");
+    @Override
+    public String toString() {
+        return "Paladin {" +
+                "name='" + getName() + '\'' +
+                ", fighterClass='" + getFighterClass() + '\'' +
+                ", skills=" + Arrays.toString(getSkills()) +
+                ", weapon='" + getWeapon() + '\'' +
+                ", HP=" + getHP() +
+                ", agility=" + getAgility() +
+                ", strength=" + getStrength() +
+                ", intelligence=" + getIntelligence() +
+                ", damage=" + getDamage() +
+                '}';
+    }
+
+    @Override
+    public void consumeDamage(int enemyDamage) {
+        super.consumeDamage(enemyDamage);
+        System.out.printf("Hero %s was damaged by %d. Now his HP is:%d\n", getName(), enemyDamage, getHP());
     };
 
     @Override
