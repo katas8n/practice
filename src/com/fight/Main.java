@@ -88,12 +88,16 @@ public class Main {
 
 
     public static void newGame() {
+        Scanner scanner = new Scanner(System.in);
         // 1. Ask user to create a hero or pick of existing (Create some amount of heroes)
         // 2. Log hero which user picked  (Override .toString of heroes )
         // 3. Create array of enemies with some heroes
         // 4. In the start of a game we should have random enemy of enemies
         // 5. Create method if it not exists provideDamage/consumeDamage
         // 6. Who will make a punch first you should decide using Random
+
+        System.out.println("Would u like to create a hero or pick of existing?");
+        String choose = scanner.nextLine();
     }
 
     public static void loadGame() {
