@@ -60,7 +60,7 @@ public class Task {
                 '}';
     }
 
-    public void marsAsDone() {
+    public void markAsDone() {
         isDone = true;
     }
 }

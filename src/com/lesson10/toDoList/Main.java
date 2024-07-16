@@ -29,6 +29,7 @@ package com.lesson10.toDoList;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.IntStream;
@@ -82,7 +83,7 @@ public class Main {
 
         while (true) {
             try {
-                System.out.println("Enter the deadline in format dd/MM/yyyy hh:mm");
+                System.out.println("Enter the deadline in format dd/MM/yyyy HH:mm");
                 String datetimeString = input.nextLine();
 
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
@@ -109,6 +110,7 @@ public class Main {
             return;
         }
 
+        System.out.println("--- Remove the task ---");
         Task task = chooseTask(tasks, input);
 
         if (task != null) {
@@ -124,16 +126,18 @@ public class Main {
             return;
         }
 
+        System.out.println("--- Mark the task as done ---");
         Task task = chooseTask(tasks, input);
 
         if (task != null) {
-            task.marsAsDone();
+            task.markAsDone();
         }
     }
 
     private static Task chooseTask(List<Task> tasks, Scanner input) {
-        System.out.println("Exit [0]: No mark any task");
-        printTasks(tasks);
+        System.out.println("0) Exit");
+        HashMap<String, String> menu = Menu.generateMenu(tasks.toArray());
+        Menu.showMenu(menu);
 
         while (true) {
             System.out.println("Please choose task number or enter 0: ");
